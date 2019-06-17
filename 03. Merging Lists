@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Merging_Lists
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			List<double> firstList = Console.ReadLine().Split().Select(double.Parse).ToList();
+			List<double> secondList = Console.ReadLine().Split().Select(double.Parse).ToList();
+
+			List<double> mergeList = new List<double>();
+
+			double saveNumberFirstList = 0;
+			double saveNumberSecondList = 0;
+
+			for (int i = 0; i < firstList.Count + secondList.Count; i++)
+			{
+
+				if (i < firstList.Count)
+				{
+					saveNumberFirstList = firstList[i];
+					mergeList.Add(saveNumberFirstList);
+				}
+
+				if (i < secondList.Count)
+				{
+					saveNumberSecondList = secondList[i];
+					mergeList.Add(saveNumberSecondList);
+				}
+			}
+
+			Console.WriteLine(string.Join(" ", mergeList));
+		}
+	}
+}
