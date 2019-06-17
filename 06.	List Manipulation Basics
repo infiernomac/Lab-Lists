@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace List_Manipulation_Basics
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			List<int> numbers = Console.ReadLine().Split().Select(int.Parse).ToList();
+
+			while (true)
+			{
+				string[] imput = Console.ReadLine().Split().ToArray();
+
+				if (imput[0].Equals("Add"))
+				{
+					numbers.Add(Convert.ToInt32(imput[1]));
+				}
+				else if (imput[0].Equals("Remove"))
+				{
+					numbers.Remove(Convert.ToInt32(imput[1]));
+				}
+				else if (imput[0].Equals("RemoveAt"))
+				{
+					numbers.RemoveAt(Convert.ToInt32(imput[1]));
+				}
+				else if (imput[0].Equals("end"))
+				{
+					break;
+				}
+				else
+				{
+					numbers.Insert(Convert.ToInt32(imput[2]), Convert.ToInt32(imput[1]));
+				}
+			}
+
+			Console.WriteLine(string.Join(" ", numbers));
+		}
+	}
+}
